@@ -1,0 +1,15 @@
+{
+  "name": "yt-backend",
+  "version": "1.0.0",
+  "description": "Backend for Youtube App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon /src/index.js"
+  },
+  "author": "Abhey Khurana",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  }
+}
