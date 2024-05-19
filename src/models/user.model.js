@@ -2,8 +2,7 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import mongoose, { Schema } from "mongoose";
 
-
-const schemaObj = {
+const UserSchema = new Schema({
     username: {
         type: String,
         required: true,
@@ -43,9 +42,7 @@ const schemaObj = {
         type: Schema.Types.ObjectId,
         ref: "Video"
     }
-}
-
-const UserSchema = new Schema(schemaObj, { timestamps: true });
+}, { timestamps: true });
 
 UserSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
@@ -84,7 +81,7 @@ UserSchema.methods.generateRefreshToken = function () {
 }
 
 
-const User = mongoose.Model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 
 
